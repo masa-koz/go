@@ -22,5 +22,12 @@ func main() {
 	} else {
 		fmt.Println("The address is ", addr.String())
 	}
+	mask := addr.DefaultMask()
+	network := addr.Mask(mask)
+	ones, bits := mask.Size()
+	fmt.Println("DefaultMask is ", bits)
+	fmt.Println("Leading ones count is ", ones)
+	fmt.Println("Mask(hex) is ", mask.String())
+	fmt.Println("network is ", network.String())
 	os.Exit(0)
 }
